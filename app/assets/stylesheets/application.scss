@@ -1,0 +1,437 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ @import "bootstrap";
+ */
+h3  {
+  padding-right: 5px;
+}
+
+ body {
+    background:#f1f1f1 !important;
+  
+
+  }
+  li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+  .container {
+    background: white ;
+    border-radius: .30rem;
+
+  }
+  .nav {
+    background: white !important;
+    border-radius: .30rem;
+  }
+  span {
+    font-size: 120% !important;
+  }
+  a { 
+    text-decoration: none !important;
+   
+    /* text-decoration: none !important;  */
+    padding: 3px;
+  }
+  
+  .navbar-nav {
+    position: sticky;
+  }
+  .nav-pills a{
+    color: #373a48 !important;
+  }
+  
+  .nav-stail {
+    color: white !important;
+    padding-left: 10px !important;
+    display: block;
+    padding: .5rem 1rem;
+  }
+  .user_calss{
+    color: #373a48 !important;
+  }
+  :hover.user_calss {
+    color: blue !important;
+  }
+
+  span:hover.nav-stail {
+    background: #373a48 !important;
+    border-radius: .30rem;
+    color: #FF8C00 !important;
+  }
+  a:hover {
+    color: #DCDCDC !important;
+  }
+  .nav-link {
+    color: white !important;
+  }
+  a:hover.nav-link 
+  {
+    background-color: #373a48 !important;
+    border-radius: .25rem;
+  }
+  a:hover.btn {
+    color:white !important ;
+  }
+  .btn-in-home {
+     margin-left: 10px !important;
+  }
+  .mine-btn {
+    color: #FF4500;
+    border-color: #FF4500;
+  }
+  
+  .mine-btn:hover {
+    background-color:  #FF4500;
+  }
+  .mybtn {
+    border-color: #9400D3 ;
+    color: #9400D3;
+    padding: 2px 10px;
+  }
+  .mybtn:hover {
+    background-color:#9400D3;
+  }
+  .mybtn1{
+    color: #6A5ACD;
+    border-color: #6A5ACD;
+  }
+  .mybtn1:hover {
+    background-color:#6A5ACD;
+    color: white;
+  }
+  .navbar-collapse {
+    flex-grow:unset !important;
+  }
+  /* .left {
+    padding-left: 100px !important;
+  } */
+
+  .col-2{
+    max-width: 20% !important;
+    flex: 0 0 20% !important;
+  }
+
+  
+  .navbar-nav{
+    padding-left: 50px !important;
+  }
+
+  .orm {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+   
+  
+  }
+.padding-right {
+  padding: 30px 20px 30px 30px !important;
+  position: fixed !important;
+
+
+}
+.main-container {
+margin-left: 400px !important;
+}
+.col-8 {
+
+  padding: 20px 20px;
+  margin-top: 30px ;
+  position: initial !important;
+}
+td.pavuk {
+  border-color: white !important;
+  padding: 0px 5px !important;
+  width: 20px !important;
+
+}
+.form-control {
+  display: inline !important;
+}
+
+  .myflex {
+    display: flex;
+  }
+  .myflex {
+    padding-top:20px !important ;
+  }
+  @media screen and (max-width: 1419px) {
+    .myflex{
+       display:inline !important ;
+        }
+    } 
+  @media screen  and (max-width:1600px) {
+    .media-menu {
+   
+      position: relative; /* Относительное позиционирование */
+      width: 250px; /* Ширина слоя */
+     
+    }
+  }
+  @media screen and (max-width: 1070px) {
+    .padding-right {
+      display: none;
+    } 
+  }
+
+  @media screen and (max-width:1070px){
+    .col-8 {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      justify-content: center;
+      max-width: 90%;
+     
+
+  }
+}
+
+
+.form-inline .form-control {
+width: 350px !important;
+}
+.jumbotron {
+  padding: 42px 20px;
+  padding-bottom: 5px !important;
+}
+.nav-link.active{
+  background-color: #373a48 !important;
+  color: white !important;
+  border-radius: .25rem;
+}
+.admin-menu {
+  padding-bottom: 0px !important;
+}
+.admin {
+  color: #373a48 !important;
+}
+:hover.admin  {
+  color: blue !important;
+}
+.dropdown-toggle{
+  height: 20px !important;
+  position: relative !important ;
+ 
+}
+
+.dropdown-toggle.aaa::after { 
+  margin-left: 10px ;
+  vertical-align: 20px ; 
+  width: 100px ;
+}
+.dropdown-toggle.bbb::after {
+  margin-left: 10px ;
+  vertical-align: 20px ; 
+  width: 80px ;
+}
+.padding_menu {
+  margin-bottom: 0px !important;
+  color: #9400D3;
+}
+label {
+  margin-bottom: 0px !important;
+
+}
+.grm{
+  width: 280px !important;
+}
+
+.svg-set {
+  color: black !important;
+}
+:hover.svg-set {
+  color: blue !important;
+}
+.svg-set-del {
+  color: black !important ;
+}
+:hover.svg-set-del {
+  color: red !important;
+}
+.svg-set-prop {
+color: black !important;
+}
+:hover.svg-set-prop {
+  color: #ffc107 !important;
+}
+.check-box {
+  width: 1.5em;
+  height: 1.5em;
+}
+.plus {
+  color: black !important;
+  
+  
+}
+:hover.plus {
+  color: green !important;
+
+
+}
+
+
+//ERRORS
+.field_with_errors {
+
+  padding: 2px;
+  border-radius: .25rem;
+  background-color: red;
+  display: table;
+
+}
+.bg-dark {
+  background-color: #373a48 !important;
+}
+
+
+//footer
+
+#myFooter {
+	background-color: #373a48 !important;
+	color:white !important;
+}
+
+#myFooter .footer-copyright{
+	background-color: #383737 !important;
+	padding-top:3px !important;
+	padding-bottom:3px !important;
+	text-align: center !important;
+}
+
+#myFooter .footer-copyright p{
+	margin:10px !important;
+	color: #ccc !important;
+}
+
+#myFooter ul{
+	list-style-type: none !important;
+    padding-left: 0 !important;
+    line-height: 1.7 !important;
+
+}
+
+#myFooter h5{
+	font-size: 18px !important;
+    color: white !important;
+    font-weight: bold !important;
+    margin-top: 30px !important;
+}
+
+#myFooter a{
+	color:#d2d1d1 !important;
+	text-decoration: none !important;
+}
+
+#myFooter a:hover, #myFooter a:focus{
+	text-decoration: none !important;
+	color:white !important;
+}
+
+#myFooter .myCols{
+	text-align: center !important;
+}
+
+#myFooter .social-networks{
+	text-align: center !important;
+	padding-top: 30px !important;
+	padding-bottom: 38px !important;
+}
+
+#myFooter .social-networks a{
+    font-size: 32px !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    color: #f9f9f9 !important;
+    padding: 10px !important;
+    transition: 0.2s !important;
+}
+
+#myFooter .social-networks a:hover{
+	text-decoration: none !important;
+}
+#myFooter .container {
+  background-color: #373a48;
+}
+
+#myFooter .facebook:hover{
+	color:#0077e2 !important;
+}
+
+#myFooter .google:hover{
+	color:#ef1a1a !important;
+}
+
+#myFooter .twitter:hover{
+	color: #00aced !important;
+}
+
+@media screen and (max-width: 767px){
+	#myFooter {
+		text-align: center !important;
+	}
+}
+
+
+
+/* CSS used for positioning the footers at the bottom of the page. */
+/* You can remove this. */
+
+
+
+body{
+    display: flex !important;
+    display: -webkit-flex !important;
+    flex-direction: column !important;
+    -webkit-flex-direction: column !important;
+    height: 100% !important;
+}
+
+.content{
+	flex: 1 0 auto !important;
+	-webkit-flex: 1 0 auto !important;
+	min-height: 200px !important;
+}
+
+#myFooter{
+	flex: 0 0 auto !important;
+    -webkit-flex: 0 0 auto !important  ;
+}
+
+.container-login100 {
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;  
+}
+.wrap-login100 {
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 55px 55px 37px 55px;
+
+  background: #e9ecef;
+  background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+  background: -o-linear-gradient(top, #7579ff, #b224ef);
+  background: -moz-linear-gradient(top, #7579ff, #b224ef);
+  background: linear-gradient(top, #7579ff, #b224ef);
+}

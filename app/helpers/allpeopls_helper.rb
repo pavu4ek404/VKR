@@ -1,0 +1,2 @@
+module AllpeoplsHelper
+end

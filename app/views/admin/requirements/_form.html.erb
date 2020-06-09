@@ -1,0 +1,38 @@
+
+<% if @requ.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @requ.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [:admin, @requ], html: { multipart: true }  do |f|%>
+<div class="d-flex">   <br>
+    <div class="orm grm flex-fill">
+        Наименование <%= f.text_field(:name,{:class =>'marginsh form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill">
+        Требование №1 <%= f.text_field(:requi1,{:class =>'marginsh form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill">
+        Требование №2 <%= f.text_field(:requi2,{:class =>'marginsh form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill">
+        Требование №3 <%= f.text_field(:requi3,{:class =>'marginsh form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill">
+        Требование №4 <%= f.text_field(:requi4,{:class =>'marginsh form-control'}) %>
+    </div>
+ 
+</div> 
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", supply_requirements_path, :class=>'btn-in-home  btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home  btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>

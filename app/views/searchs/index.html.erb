@@ -1,0 +1,27 @@
+
+<br>
+<h3>Поиск работ за период</h3>
+<br>
+<%= form_tag(search_between_page_path, :method => "get", class: "form-inline") do %>  
+<div class="input-group">  
+   <h3>C</h3> <%= search_field_tag :search1, params[:search_between],  placeholder: "2020-04-12 00:00:00", class: "form-control mr-sm-2" %>  
+   <h3>По</h3> <%= search_field_tag :search2, params[:search_between],  placeholder: "2020-04-14 00:00:00", class: "form-control mr-sm-2" %>        
+    <div class="input-group-btn"> 
+        <%= button_tag "Поиск",  :class => 'btn  btn-outline-primary',:name => nil%>  
+    </div>   
+</div>  
+<% end %>
+
+
+<br>
+<h3>Поиск поставок за период</h3>
+<br>
+<%= form_tag(search_between2_page_path, :method => "get", class: "form-inline") do %>  
+<div class="input-group">  
+   <h3>C</h3> <%= search_field_tag :search1, params[:search_between2],  placeholder: "2020-04-12 00:00:00", class: "form-control mr-sm-2" %>  
+   <h3>По</h3> <%= search_field_tag :search2, params[:search_between2],  placeholder: "2020-04-14 00:00:00", class: "form-control mr-sm-2" %>        
+    <div class="input-group-btn"> 
+        <%= button_tag "Поиск",  :class => 'btn  btn-outline-primary',:name => nil%>  
+    </div>   
+</div>  
+<% end %>

@@ -1,0 +1,80 @@
+
+<div class="container shadow">
+    <br>
+    <h1>Проведенные работы</h1>
+    <div class=""> 
+        Затраченная взрывчатка: <%=@work1 = Work.group("cuts.name").joins([well: :cut]).sum("quantity")%>
+      </div>
+      <div class=""> 
+         Затраченная взрывчатка: <%=@work2 = Work.group(" explosives.name").joins( [well: :explosive]).sum("quantity")%>
+       </div>
+       <br>
+    <%= render 'mining/works/form' %>
+    <div class="d-flex justify-content-between ">
+        <div class="">
+         <%= link_to "Перейти", mining_works_path, :class=>'btn-in-home btn mine-btn' %>
+        </div> 
+        <%if user_signed_in? %>
+        <div class="">
+            Скачать:
+         <%= link_to "csv",mining_works_path(format: "csv"), :class=>'btn mybtn'%> |
+         <%= link_to "Excel",mining_works_path(format: "xls"),:class => 'btn mybtn'  %>
+        </div> 
+     <% end %>  
+     </div>
+     <br>
+</div>
+<br>
+<br>
+<div class="container shadow">
+    <br>
+    <h1>Поставки взрывчатки</h1>
+    <div class="">
+        Хранимая взрывчатка: <%=@store1 = Deliverie.group("storehouses.name").joins(:contract,:storehouse).sum("coutn")%>
+     </div>
+     <div class="">
+        Хранимая взрывчатка: <%=@store1 = Deliverie.group("explosives.name").joins(contract: :explosive ).sum("coutn")%>
+     </div>
+     <div class="">
+        Всего затрачено: <%=@store1 = Deliverie.joins(contract: :explosive ).sum("price")%> руб.
+     </div>
+     <br>
+    <%= render 'supply/deliveries/form' %>
+    <div class="d-flex justify-content-between ">
+        <div class="">
+         <%= link_to "Перейти", supply_deliveries_path, :class=>'btn-in-home btn mine-btn' %>
+        </div> 
+        <%if user_signed_in? %>
+        <div class="">
+            Скачать:
+         <%= link_to "csv",supply_deliveries_path(format: "csv"), :class=>'btn mybtn'%> |
+         <%= link_to "Excel",supply_deliveries_path(format: "xls"),:class => 'btn mybtn'  %>
+        </div> 
+     <% end %>  
+     </div>
+     <br>
+</div>
+<br>
+<br>
+<div class="container shadow">
+    <br>
+    <h1>Персонал</h1>
+    <%= render 'personal/allpeopls/form' %>
+    <div class="d-flex justify-content-between ">
+        <div class="">
+         <%= link_to "Перейти", personal_peopls_path, :class=>'btn-in-home btn mine-btn' %>
+        </div> 
+        <%if user_signed_in? %>
+        <div class="">
+            Скачать:
+         <%= link_to "csv",personal_allpeopls_path(format: "csv"), :class=>'btn mybtn'%> |
+         <%= link_to "Excel",personal_allpeopls_path(format: "xls"),:class => 'btn mybtn'  %>
+        </div> 
+     <% end %>  
+     </div>
+     <br>
+</div> 
+
+
+
+    

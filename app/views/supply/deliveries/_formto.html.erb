@@ -1,0 +1,47 @@
+<% if @deli.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @deli.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+<%= form_for [:supply, @deli], html: { multipart: true }  do |f|%>
+<div class="d-flex ">   <br>
+    <div class="orm grm flex-fill"> 
+        Контракт  <a href="<%=new_supply_contract_path%>" class="plus">
+            <svg class="bi bi-plus" width="1.5em" height="1.5em" viewBox="0 0 16 16" 
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule=
+                "evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z" 
+                clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z" 
+                clip-rule="evenodd"/>
+              </svg>
+        </a><%= f.collection_select :contract_id, Contract.order(:name), 
+        :id,:name, {include_blank: true}, class: 'form-control' %> 
+    </div>
+    <div class="orm grm flex-fill"> 
+        Склад<%= f.collection_select :storehouse_id, Storehouse.order(:name), 
+        :id, :name, {include_blank: true}, class: 'form-control' %> 
+    </div>
+   <div class="orm grm flex-fill">
+    Время<%= f.datetime_local_field(:time,{:class => 'form-control'}) %>
+   </div>
+</div> 
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-success'})%></p>
+    <p><%= link_to "Перейти", supply_deliveries_path, :class=>'btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<% end %>
+    <h2>Импортировать</h2>
+    <div class="orm ">
+        <%= form_tag import_mining_works_path, multipart: true do %>
+          <%= file_field_tag :file %>
+           <%= submit_tag "Вставить", class: "btn-in-home btn mybtn1" %>
+        </div>
+<%end%>

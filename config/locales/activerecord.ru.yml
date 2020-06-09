@@ -1,0 +1,49 @@
+ru:
+  activerecord:
+    attributes:
+      peopl:
+        prof: 'Код профессии'
+        sert: 'Код сертификата'
+        fn: 'Фамилия'
+        sn: 'Имя'
+        tn: 'Отчество'
+        dolj: 'Должность'
+      cut:
+        name: 'Разрез'
+      well:
+        name: 'Скважина'
+      explosive:
+        name: 'Взрывчатка'
+      prof:
+        name_prof: 'Профессия'
+      sert:
+        name_sert: 'Сертификат'
+        
+    errors:
+      models:
+          cut:
+            attributes:
+              name:
+                taken: 'уже существует' 
+          well:
+            attributes:
+              name:
+                taken: 'уже существует' 
+          explosive:
+            attributes:
+              name:
+                taken: 'уже существует' 
+          prof:
+            attributes:
+              name_prof:
+                taken: 'уже существует' 
+          sert:
+            attributes:
+              name_sert:
+                taken: 'уже существует' 
+
+      messages:
+        blank: 'не может быть пустым'
+        required: 'не существует в базе данных'
+   
+      

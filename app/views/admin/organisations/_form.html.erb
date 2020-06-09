@@ -1,0 +1,26 @@
+
+<% if @org.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @org.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [:admin, @org], html: { multipart: true }  do |f|%>
+<div class="">   <br>
+    <div class=" grm ">
+        Название <%= f.text_field(:name,{:class =>'marginsh form-control'}) %>
+    </div>
+    
+</div> 
+<br>
+    <div class=" d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", supply_organisations_path, :class=>'btn-in-home  btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home  btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>

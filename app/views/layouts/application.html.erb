@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Gg</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+      </ul>
+    
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="http://images.chistoprudov.ru/lj/prom/sgok_night/23.jpg" alt="Los Angeles">
+        </div>
+        <div class="carousel-item">
+          <img src="https://pbs.twimg.com/media/Bq_eXR6IEAAGzV4.jpg:large" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+          <img src="https://1271032505.rsc.cdn77.org/data/images/full/740/an-excavator-loads-a-dump-truck-with-coal-at-the-krasnobrodsky-opencast-colliery-owned-by-kuzbassrazrezugol-company-part-of-ummc-ural-mining-and-metallurgical-company-some-150-km-93-miles-south-of-the-siberian-city-of-kemerovo-july-23-2012-picture-taken-j.jpg" alt="New York">
+        </div>
+      </div>
+    
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a> 
+    </div> -->
+
+     <div class="jumbotron text-center" style="margin-bottom:0">
+      
+     
+      <div class="d-flex flex-row-reverse ">
+  
+        <% if  user_signed_in? && current_user.admin? %>
+        <div> 
+          <a href="/users" class="svg-set">
+            <svg class="bi bi-people-fill" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 100-6 3 3 0 000 6zm-5.784 6A2.238 2.238 0 015 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 005 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+          </div>
+          <div>
+            <a class="svg-set" href="/users/sign_out" data-method="delete">
+            <svg class="bi bi-box-arrow-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 000-.708L1.707 8l2.647-2.646a.5.5 0 10-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708 0z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M11.5 8a.5.5 0 00-.5-.5H2a.5.5 0 000 1h9a.5.5 0 00.5-.5z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 001.5-1.5V4A1.5 1.5 0 0014 2.5H7A1.5 1.5 0 005.5 4v1.5a.5.5 0 001 0V4a.5.5 0 01.5-.5h7a.5.5 0 01.5.5v8a.5.5 0 01-.5.5H7a.5.5 0 01-.5-.5v-1.5a.5.5 0 00-1 0V12A1.5 1.5 0 007 13.5h7z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+        </div>
+        <a class="svg-set" href="/users/edit"> 
+          <svg class="bi bi-gear-fill" width="1.4em" height="1.4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 01-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 01.872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 012.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 012.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 01.872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 01-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 01-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 100-5.86 2.929 2.929 0 000 5.858z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <div> 
+        </div>
+
+        <% elsif user_signed_in? %>
+       <div>
+              <a class="svg-set" href="/users/sign_out" data-method="delete">
+              <svg class="bi bi-box-arrow-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.354 11.354a.5.5 0 000-.708L1.707 8l2.647-2.646a.5.5 0 10-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708 0z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M11.5 8a.5.5 0 00-.5-.5H2a.5.5 0 000 1h9a.5.5 0 00.5-.5z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M14 13.5a1.5 1.5 0 001.5-1.5V4A1.5 1.5 0 0014 2.5H7A1.5 1.5 0 005.5 4v1.5a.5.5 0 001 0V4a.5.5 0 01.5-.5h7a.5.5 0 01.5.5v8a.5.5 0 01-.5.5H7a.5.5 0 01-.5-.5v-1.5a.5.5 0 00-1 0V12A1.5 1.5 0 007 13.5h7z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+          </div>
+          <a class="svg-set" href="/users/edit"> 
+            <svg class="bi bi-gear-fill" width="1.4em" height="1.4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 01-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 01.872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 012.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 012.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 01.872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 01-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 01-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 100-5.86 2.929 2.929 0 000 5.858z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+          <div> 
+          </div>
+      
+          <%else %>
+          <div>
+              <a href="/users/sign_in" class="svg-set">  
+              <svg class="bi bi-box-arrow-in-right" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 010-.708L10.793 8 8.146 5.354a.5.5 0 11.708-.708l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 011 8z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0015 13V3a1.5 1.5 0 00-1.5-1.5h-8A1.5 1.5 0 004 3v1.5a.5.5 0 001 0V3a.5.5 0 01.5-.5h8a.5.5 0 01.5.5v10a.5.5 0 01-.5.5h-8A.5.5 0 015 13v-1.5a.5.5 0 00-1 0V13a1.5 1.5 0 001.5 1.5h8z" clip-rule="evenodd"/>
+            </svg> 
+          </a>
+          </div>
+          <%# <div>
+            <a href="/users/sign_up" class="svg-set"> 
+              <svg class="bi bi-people-circle" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z"/>
+                <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+          </div> %>
+       <% end %>
+       </ul>
+      </div>
+    </div>
+  
+
+    <% if user_signed_in? && current_user.admin? %>
+    <nav class=" navbar-expand-lg " >
+      <div class=" d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3  bg-secondary navbar-dark border-bottom shadow-sm ">
+    
+        <h6 class="row my-0 mr-md-auto font-weight-bold text-white"> Панель <br> администратора </h6>
+        
+        <button class=" order-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <span ><%=link_to "Главная страница", home_path, :class => "nav-stail "%></span>
+            </li>
+            <li class="nav-item">
+              <span ><%=link_to "Поиск", searchs_path, :class => " nav-stail "%></span>
+            </li>
+            <li class="nav-item">
+              <span class="d-flex flex-column">
+              <%=link_to "Проведение", mining_works_path,:class => "nav-stail admin-menu" %>
+              <a class=" dropdown-toggle aaa"id="navbardrop" data-toggle="dropdown">  </a>
+              <div class="dropdown-menu">
+                <a class="" ><%=link_to 'Скважины', mining_wells_path,class: 'admin' %></a>
+                <br>
+                <a class="" ><%=link_to 'Разрезы', mining_cuts_path,class: 'admin' %></a>
+                <br>
+                <a class="" ><%=link_to 'Взрывчатка', mining_explosives_path,class: 'admin' %></a>
+              </div>
+              </span>
+              <li class="nav-item">
+                <span class="d-flex flex-column">
+                <%=link_to "Поставки", supply_deliveries_path,:class => "nav-stail admin-menu" %>
+                <a class=" dropdown-toggle bbb"id="navbardrop" data-toggle="dropdown">  </a>
+                <div class="dropdown-menu">
+                  <a class="" ><%=link_to 'Контракты', supply_contracts_path,class: 'admin' %></a>
+                  <br>
+                  <a class="" ><%=link_to 'Склады', supply_storehouses_path,class: 'admin' %></a>
+                  <br>
+                  <a class="" ><%=link_to 'Требования', supply_requirements_path,class: 'admin' %></a>
+                  <br>
+                  <a class="" ><%=link_to 'Организации', supply_organisations_path,class: 'admin' %></a>
+                </div>
+
+              </span>
+              </li>
+            <li class="nav-item">
+              <span class="d-flex flex-column">
+              <%=link_to "Персонал", personal_allpeopls_path,:class => "nav-stail admin-menu" %>
+              <a class=" dropdown-toggle bbb"id="navbardrop" data-toggle="dropdown">  </a>
+              <div class="dropdown-menu">
+                <a class="" ><%=link_to 'Персонал', personal_peopls_path,class: 'admin' %></a>
+                <br>
+                <a class="" ><%=link_to 'Профессии', personal_profs_path,class: 'admin' %></a>
+                <br>
+                <a class="" ><%=link_to 'Сертификаты', personal_serts_path,class: 'admin' %></a>
+              </div>
+            </span>
+            </li>
+          </ul>
+        </div> 
+        </nav>
+  <% else %>
+    <nav class=" navbar-expand-lg sticky-top" >
+    <div class=" d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
+  
+      <h5 class="row my-0 mr-md-auto font-weight-bold text-white">Logo</h5>
+      <button class=" order-1 navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <span ><%=link_to "Главная страница", home_path, :class => "nav-link nav-stail "%></span>
+          </li>
+          <% if user_signed_in?  %>
+          <li class="nav-item">
+            <span ><%=link_to "Поиск", searchs_path, :class => "nav-link nav-stail "%></span>
+          </li>
+          <% end %>
+          <li class="nav-item">
+            <span ><%=link_to "Проведенные работы", mining_works_path, :class => "nav-link nav-stail "%></span>
+          </li>
+          <li class="nav-item">
+            <span ><%=link_to "Поставки", supply_deliveries_path, :class => "nav-link nav-stail "%></span>
+          </li>
+          <li class="nav-item">
+            <span ><%=link_to "Персонал", personal_allpeopls_path, :class => "nav-link nav-stail "%></span>
+          </li>
+         </ul>
+      </div> 
+      </nav>
+  </div>  
+
+  <% end %>
+    <div class="row">
+      <div class="col-md-12">
+        <% flash.each do |name, message| %>
+          <div class="alert <%= bootstrap_class_for(name) %>">
+            <button class="close" data-dismiss="alert">&times;</button>
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+ 
+
+<div class="row">
+  <div class="col-2 padding-right ">
+
+    <h3>Навигация</h3>
+    <ul class="nav nav-pills flex-column media-menu shadow ">
+      <li class="nav-item">
+        <%=link_to "Главная страница", home_path,  :class => " nav-link #{'active' if current_page?(home_path)}" %>   
+      </li>
+        <li class="nav-item">
+          <%=link_to "Проведенные работы", mining_works_path,  :class => " nav-link #{'active' if current_page?(mining_works_path)}"%> 
+    
+          <% if user_signed_in? && current_user.admin? %>       
+          <ul>
+            <li>
+              <%=link_to "Добавить скважину",  new_admin_well_path,  :class => " nav-link #{'active' if current_page?(new_admin_well_path)}" %> 
+             </li>
+            <%=link_to "Добавить разрез",  new_admin_cut_path,  :class => " nav-link #{'active' if current_page?(new_admin_cut_path)}" %> 
+           </li>
+            <li>
+              <%=link_to "Добавить взрывчатку",  new_admin_explosife_path,  :class => " nav-link #{'active' if current_page?(new_admin_explosife_path)}" %> 
+             </li>
+          </ul>
+          <% end %>
+        </li>
+      
+        <li class="nav-item">
+          <%=link_to "Персонал", personal_allpeopls_path,  :class => " nav-link #{'active' if current_page?(personal_allpeopls_path)}"%> 
+       
+          <% if user_signed_in? && current_user.admin? %>
+       <ul>
+            <li>
+              <%=link_to "Добавить профессию",  new_admin_prof_path,  :class => " nav-link #{'active' if current_page?(new_admin_prof_path)}" %> 
+            </li>
+            <li>
+              <%=link_to "Добавить  сертификат",  new_admin_sert_path,  :class => " nav-link #{'active' if current_page?(new_admin_sert_path)}" %> 
+            </li>
+            <li>
+              <div> <%= link_to "Добавить сотрудника", new_admin_peopl_path, :class=>"nav-link #{'active' if current_page?(new_admin_peopl_path)}"%></div>
+            </li>
+          </ul>
+          </li>
+        <% end %>
+          <li class="nav-item">
+            <%=link_to "Поставки", supply_deliveries_path,  :class => " nav-link #{'active' if current_page?(supply_deliveries_path)}"%> 
+            <% if user_signed_in? && current_user.admin? %>
+            <ul>
+              <li>
+                <%=link_to "Добавить  контракт",  new_supply_contract_path,  :class => " nav-link #{'active' if current_page?(new_supply_contract_path)}" %> 
+              </li>
+              <li>
+                <div> <%= link_to "Добавить организацию", new_admin_organisation_path, :class=>"nav-link #{'active' if current_page?(new_admin_organisation_path)}"%></div>
+              </li>
+              <li>
+                <%=link_to "Добавить cклад",  new_admin_storehouse_path,  :class => " nav-link #{'active' if current_page?(new_admin_storehouse_path)}" %> 
+              </li>
+            </ul>
+        
+            </li>
+           
+          <% else %>
+      
+
+        <li class="nav-item">
+          <%=link_to "Скважины", mining_wells_path,  :class => " nav-link }" %>   
+        </li>
+        <li class="nav-item">
+          <%=link_to "Разрезы", mining_cuts_path,  :class => " nav-link " %>   
+        </li>
+        <li class="nav-item">
+          <%=link_to "Взрывчатка", mining_explosives_path,  :class => " nav-link " %>   
+        </li>
+        <li class="nav-item">
+          <%=link_to "Склады",supply_storehouses_path,  :class => " nav-link " %>   
+        </li>
+  
+        <li class="nav-item">
+          <%=link_to "Требования к складам", supply_requirements_path,  :class => " nav-link " %>   
+        </li>
+        <li class="nav-item">
+          <%=link_to "Организации", supply_organisations_path,  :class => " nav-link " %>   
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  
+  <div class=" shadow col-8 container main-container">
+    <br>
+    <%= yield %>
+  </div>
+</div>
+<div class="content">
+</div>
+    <footer id="myFooter">
+      <br>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">Ифнормация</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>Дипломная работа по теме: "Автоматизация процесса учета взрывных работ". Работа реализованна на основе технологии Ruby on Rails</p>
+              </div>
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                  <a href="#!">MDBootstrap</a>
+                </p>
+                <p>
+                  <a href="#!">MDWordPress</a>
+                </p>
+                <p>
+                  <a href="#!">BrandFlow</a>
+                </p>
+                <p>
+                  <a href="#!">Bootstrap Angular</a>
+                </p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">Быстрая навигация</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                  <a href="#!">Работы</a>
+                </p>
+                <p>
+                  <a href="#!">Персонал</a>
+                </p>
+                <p>
+                  <a href="#!">Поставки</a>
+                </p>
+                <p>
+                  <a href="#!">Склады</a>
+                </p>
+        
+              </div>
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <h6 class="text-uppercase font-weight-bold">Контракты</h6>
+                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                  <svg class="bi bi-house-door-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 10.995V14.5a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4a.5.5 0 01-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                    <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                  </svg> Кемерово, Сарыгина 82, RU</p>
+                <p>
+                  <svg class="bi bi-envelope-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.05 3.555L8 8.414l7.95-4.859A2 2 0 0014 2H2A2 2 0 00.05 3.555zM16 4.697l-5.875 3.59L16 11.743V4.697zm-.168 8.108L9.157 8.879 8 9.586l-1.157-.707-6.675 3.926A2 2 0 002 14h12a2 2 0 001.832-1.195zM0 11.743l5.875-3.456L0 4.697v7.046z"/>
+                  </svg> zagidullindima@gmail.com</p>
+                <p>
+                  <svg class="bi bi-bar-chart-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="4" height="5" x="1" y="10" rx="1"/>
+                    <rect width="4" height="9" x="6" y="6" rx="1"/>
+                    <rect width="4" height="14" x="11" y="1" rx="1"/>
+                  </svg> + 7(923)-498-27-45</p>
+              
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2020 by Zagidullin Dmitry </p>
+        </div>
+    </footer>
+  </body>
+</html>

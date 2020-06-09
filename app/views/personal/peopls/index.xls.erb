@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Фамилия</Data></Cell>
+        <Cell><Data ss:Type="String">Имя</Data></Cell>
+        <Cell><Data ss:Type="String">Отчество</Data></Cell>
+        <Cell><Data ss:Type="String">Должность</Data></Cell>
+        <Cell><Data ss:Type="String">Профессия</Data></Cell>
+        <Cell><Data ss:Type="String">Сертификат</Data></Cell>
+      </Row>
+    <% @peopl.each do |peopl| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= peopl.id %></Data></Cell> 
+        <Cell><Data ss:Type="String"><%= peopl.fn %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= peopl.sn %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= peopl.tn %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= peopl.dolj %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= peopl.prof.name_prof %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= peopl.sert.name_sert%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

@@ -1,0 +1,40 @@
+<% if @user.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @user.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [@user], html: { multipart: true }  do |f|%>
+<div class="d-flex ">   <br>
+
+    <div class="orm grm flex-fill"> 
+        mail<%= f.email_field :email, autofocus: true, class: 'form-control' %> 
+    </div>
+
+    <div class="orm grm flex-fill">
+        Фамилия <%= f.text_field :sname, autofocus: true,class: 'form-control' %>
+    </div>
+     
+    <div class="orm grm flex-fill">
+        Имя <%= f.text_field :fname, autofocus: true, class: 'form-control' %>
+    </div>
+    
+
+</div> 
+<br>
+<div class="orm grm ">
+    Admin <%= f.check_box :admin, class: '' %>
+</div>
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-success'})%></p>
+    <p><%= link_to "Перейти", users_path, :class=>'btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>
+

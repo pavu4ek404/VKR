@@ -1,0 +1,28 @@
+<% if @prof.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @prof.errors.full_messages.each do |item|%>
+        <li><%= item %></li>
+        <%end %>
+    </ul>
+</div>
+<%end%>
+
+<%= form_for [:admin, @prof] do |f|%>
+<div class="d-flex ">   <br>
+    <div class="orm grm flex-fill">
+        Наименование <%= f.text_field(:name_prof,{:class => 'form-control'}) %>
+    </div>
+
+    <div class="orm grm flex-fill">
+        Сотрудник<%= f.collection_select :peopl_id, Peopl.order(:fn), :id, :fn, {include_blankL: true}, class: 'form-control' %> 
+   </div>
+</div>
+<br>
+<div class="d-flex orm">
+    <p ><%=f.submit 'Сохранить', ({:class => ' btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", personal_profs_path, :class=>'btn-in-home  btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home  btn btn-outline-dark text-dark'})%></p>
+    </div>  
+<%end%>

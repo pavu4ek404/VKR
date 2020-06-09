@@ -1,0 +1,42 @@
+<% if @allpeopl.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @allpeopl.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [:personal, @allpeopl], html: { multipart: true }  do |f|%>
+<div class="d-flex ">   <br>
+
+    <div class="orm grm flex-fill"> 
+        Фамилия<%= f.collection_select :peopl_id, Peopl.order(:fn), :id, :fn, {include_blank: true}, class: 'form-control' %> 
+    </div>
+
+    <div class="orm grm flex-fill">
+        Профессия <%= f.collection_select :prof_id, Prof.order(:name_prof), :id, :name_prof, {include_blank: true}, :class => 'form-control' %>
+   </div>
+
+   <div class="orm grm flex-fill">
+    Сертификат<%= f.collection_select :sert_id, Sert.order(:name_sert), :id, :name_sert, {include_blank: true},class: 'form-control' %>
+   </div>
+
+
+</div> 
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-success'})%></p>
+    <p><%= link_to "Перейти", personal_allpeopls_path, :class=>'btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>
+<h2>Импортировать</h2>
+<div class="orm ">
+<%= form_tag import_personal_allpeopls_path, multipart: true do %>
+  <%= file_field_tag :file %>
+   <%= submit_tag "Вставить", class: "btn-in-home btn mybtn1" %>
+</div>
+<% end %>

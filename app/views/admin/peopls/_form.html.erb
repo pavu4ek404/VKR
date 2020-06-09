@@ -1,0 +1,41 @@
+
+<% if @peopl.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @peopl.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [:admin, @peopl], html: { multipart: true }  do |f|%>
+<div class="d-flex">   <br>
+    <div class="orm grm flex-fill">
+        Фамилия <%= f.text_field(:fn,{:class =>'marginsh form-control'}) %>
+    </div>
+    
+    <div class="orm grm flex-fill">
+        Имя <%= f.text_field(:sn,{:class => 'form-control'}) %>
+    </div>
+   
+    <div class="orm grm flex-fill">
+         Отчество<%= f.text_field(:tn,{:class => 'form-control'}) %>
+    </div>
+  
+    <div class="orm grm flex-fill">
+         Должность<%= f.text_field(:dolj,{:class => 'form-control'}) %>
+    </div>
+
+</div> 
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", personal_peopls_path, :class=>'btn-in-home  btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home  btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>
+
+
+

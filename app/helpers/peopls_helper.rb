@@ -1,0 +1,2 @@
+module PeoplsHelper
+end

@@ -1,0 +1,13 @@
+
+ <h2>Поставки</h2>
+ <div class="">
+    Хранимая взрывчатка: <%=@store1 = Deliverie.group("storehouses.name").joins(:contract,:storehouse).sum("coutn")%>
+ </div>
+ <div class="">
+    Хранимая взрывчатка: <%=@store1 = Deliverie.group("explosives.name").joins(contract: :explosive ).sum("coutn")%>
+ </div>
+ <div class="">
+    Всего затрачено: <%=@store1 = Deliverie.joins(contract: :explosive ).sum("price")%> руб.
+ </div>
+ <br>
+ <%= render "form" %>

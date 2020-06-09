@@ -1,0 +1,24 @@
+<% if @cut.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @cut.errors.full_messages.each do |item|%>
+        <li><%= item %></li>
+        <%end %>
+    </ul>
+</div>
+<%end%>
+
+<%= form_for [:admin, @cut], html: { multipart: true } do |f|%>
+<div class=" ">   <br>
+    <div class=" grm">
+        Наименование <%= f.text_field(:name,{:class => 'form-control'}) %>
+    </div>
+</div>
+<br>
+<div class="d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", mining_cuts_path, :class=>'btn-in-home  btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home  btn btn-outline-dark text-dark'})%></p>
+    </div>  
+<%end%>

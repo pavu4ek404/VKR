@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Организация</Data></Cell>
+        <Cell><Data ss:Type="String">Количество тонн</Data></Cell>
+        <Cell><Data ss:Type="String">Цена</Data></Cell>
+        <Cell><Data ss:Type="String">Взрывчатка</Data></Cell>
+        <Cell><Data ss:Type="String">Склад</Data></Cell>
+        <Cell><Data ss:Type="String">Время заключения</Data></Cell>
+      </Row>
+   <% @deli.each do |deli| %> 
+      <Row>
+        <Cell><Data ss:Type="Number"><%= deli.id%></Data></Cell> 
+        <Cell><Data ss:Type="String"><%= deli.contract.organisation.name %></Data></Cell> 
+        <Cell><Data ss:Type="Number"><%= deli.contract.coutn%></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= deli.contract.price%></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= deli.contract.explosive.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= deli.contract.name%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= deli.time%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

@@ -1,0 +1,38 @@
+<% if @store.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @store.errors.full_messages.each do |item|%>
+        <li><%= item %></li>
+        <%end %>
+    </ul>
+</div>
+<%end%>
+
+<%= form_for [:admin, @store] do |f|%>
+<div class="d-flex ">   <br>
+    <div class="orm grm flex-fill">
+        Наименование <%= f.text_field(:name,{:class => 'form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill">
+        Начальник охраны<%= f.collection_select :peopl_id, Peopl.where("dolj = 'Начальник охраны'").order(:fn), :id, :fn, {include_blankL: true}, class: 'form-control' %> 
+   </div>
+   <div class="orm grm flex-fill">
+    Ответственный<%= f.collection_select :peopl1_id, Peopl.where("dolj = 'Ответственный за склад'").order(:fn), :id, :fn, {include_blankL: true}, class: 'form-control' %> 
+   </div>
+   <div class="orm grm flex-fill">
+    Разрез<%= f.collection_select :cut_id, Cut.order(:name), :id, :name, {include_blankL: true}, class: 'form-control' %> 
+    </div>
+    <div class="orm grm flex-fill">
+        Требование<%= f.collection_select :requirement_id, Requirement.order(:name), :id, :name, {include_blankL: true}, class: 'form-control' %> 
+    </div>
+
+</div>
+<br>
+<div class="d-flex orm">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-outline-success'})%></p>
+    <p><%= link_to "Перейти", supply_storehouses_path, :class=>'btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => ' btn-in-home btn btn-outline-dark text-dark'})%></p>
+</div>  
+
+<%end%>

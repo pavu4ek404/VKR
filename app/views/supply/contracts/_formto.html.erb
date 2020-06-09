@@ -1,0 +1,39 @@
+<% if @contr.errors.any? %>
+<div class="alert alert-danger">
+    <h5><%= t('common.errors') %></h5>
+    <ul>
+        <% @contr.errors.full_messages.each do |item|%>
+            <li><%= item %></li>
+        <% end %>
+    </ul>   
+</div>
+<%end %>
+
+<%= form_for [:supply, @contr], html: { multipart: true }  do |f|%>
+<div class="d-flex ">   <br>
+
+     <div class="orm grm flex-fill">
+        Наименование <%= f.text_field(:name,{:class =>'marginsh form-control'}) %>
+    </div>
+    <div class="orm grm flex-fill"> 
+        Название организации<%= f.collection_select :organisation_id, Organisation.order(:name), :id, :name, {include_blank: true}, class: 'form-control' %> 
+    </div>
+
+    <div class="orm grm flex-fill">
+        Взрывчатка<%= f.collection_select :explosive_id, Explosive.order(:name), :id, :name, {include_blankL: true}, class: 'form-control' %> 
+    </div>
+    <div class="orm grm flex-fill">
+        Количество тонн<%= f.number_field(:coutn, in: 0.1..10000.0, step: 0.1 ,:class => 'form-control') %>
+   </div>
+   <div class="orm grm flex-fill">
+        Цена<%= f.number_field(:price, in: 0.1..100000000.0, step: 0.1 ,:class => 'form-control') %>
+    </div>
+
+</div> 
+<br>
+    <div class="orm d-flex">
+    <p ><%=f.submit 'Сохранить', ({:class => 'btn btn-success'})%></p>
+    <p><%= link_to "Перейти", supply_contracts_path, :class=>'btn-in-home btn mine-btn' %></p>
+    <p ><%= link_to "Назад", :back, ({ :class => 'btn-in-home btn btn-outline-dark text-dark'})%></p>
+    </div>    
+<%end%>

@@ -1,0 +1,63 @@
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+
+<div class="container-login100">
+  <div class="wrap-login100">
+    <h2>Настройка пользователя</h2>
+  <div class="orm grm">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control' %>
+  </div>
+  <br>
+
+  <div class="orm grm flex-fill" >
+   Фамилия <br><%= f.text_field :fname,class: 'form-control' %>
+  </div>
+  <br>
+
+  <div class="orm grm flex-fill">
+   Имя <br> <%= f.text_field :sname, class: 'form-control' %>
+  </div>
+
+
+  <br>
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="orm grm flex-fill">
+    <%= f.label :password  %> <br>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
+    <% if @minimum_password_length %> <br>
+     min <%= %> 8
+      <br />
+    <% end %>
+  </div>
+  <br>
+
+  <div class="orm grm flex-fill">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control' %>
+  </div>
+
+  <br>
+
+  <div class="orm grm flex-fill">
+    <%= f.label :current_password %> <br />
+    <%= f.password_field :current_password, autocomplete: "current-password",class: 'form-control' %>
+  </div>
+<br>
+<div class="d-flex">
+<p class="orm"><%= f.submit "Сохранить", class:'btn btn-outline-success' %></p>
+<% end %>
+<p class="orm"><%= button_to "Покинуть", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn btn-outline-warning'%></p>
+<p class="orm"><%= link_to "Назад", :back , class: "btn btn-outline-dark text-dark  "%></p>
+</div>
+</div>
+
+</div>
